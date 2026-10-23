@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.apkbuilder'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "com.apkbuilder"
+        minSdk 26
+        // targetSdk 34 on purpose: from API 29 up Android forbids running binaries
+        // (aapt2 / zipalign) copied into app storage. The bundled tools live in
+        // jniLibs (nativeLibraryDir) and work on any target, targetSdk 34 additionally
+        // lets you import your own tool binaries at runtime.
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+        ndk { abiFilters 'arm64-v8a' }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    packagingOptions {
+        // aapt2 / zipalign are executables stored as lib*.so - they must be extracted
+        // to disk and must not be stripped.
+        jniLibs {
+            useLegacyPackaging true
+            keepDebugSymbols.add('**/*.so')
+        }
+        resources {
+            excludes += ['META-INF/MANIFEST.MF', 'META-INF/*.SF', 'META-INF/*.RSA',
+                         'META-INF/*.DSA', 'META-INF/LICENSE*', 'META-INF/NOTICE*',
+                         'META-INF/services/javax.*', 'about.html', 'plugin.properties']
+        }
+    }
+
+    aaptOptions {
+        // android.jar is a big already-compressed archive
+        noCompress 'jar'
+    }
+}
+
+dependencies {
+    // Everything is local (no androidx, nothing to download):
+    //   apksig.jar      -> APK v1/v2/v3 signing + verification (local)
+    //   dx-10.0.0.jar   -> legacy DX classes (local)
+    // Java 17 toolchain, all local (no download needed):
+    //   libs/ecj.jar   -> ECJ 3.41, Java 17 compiler
+    //   libs/r8_1.jar  -> R8/D8 9.1.31, dexer (required for Java 17 bytecode)
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+
+// Self-healing: removes stale files left over from older versions of this project
+// (extracting a ZIP over an existing folder does not delete them).
+tasks.register('cleanStaleFiles') {
+    doLast {
+        delete file('src/main/res/values/R.txt')
+        delete file('src/main/java/com/apkbuilder/R.java')
+        // IDE-template leftovers (e.g. values-night/themes.xml referencing Material3)
+        file('src/main/res').listFiles()?.each { d ->
+            if (d.isDirectory() && d.name.startsWith('values-')) delete d
+        }
+        file('src/main/res/values').listFiles()?.each { f ->
+            if (!(f.name in ['colors.xml', 'strings.xml', 'themes.xml'])) delete f
+        }
+    }
+}
+tasks.matching { it.name == 'preBuild' }.configureEach { dependsOn 'cleanStaleFiles' }

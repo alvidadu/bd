@@ -1,0 +1,19 @@
+// Root build file. If your IDE already generated a working root build.gradle
+// (plugin versions matched to your on-device Gradle), keep yours - the app module
+// below does not need anything special from it.
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.1.4'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}

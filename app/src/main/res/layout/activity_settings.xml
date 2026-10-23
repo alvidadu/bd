@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/bg">
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="20dp">
+    <TextView android:text="Project Settings" style="@style/ScreenTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+
+    <TextView android:text="APP ICON" style="@style/SectionLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <LinearLayout android:orientation="horizontal" android:gravity="center_vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@+id/iconPreview" android:background="@drawable/bg_input" android:padding="6dp"
+            android:scaleType="fitCenter" android:contentDescription="App icon preview"
+            android:layout_width="72dp" android:layout_height="72dp" android:layout_marginEnd="14dp" />
+        <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content">
+            <Button android:id="@+id/btnSelectIcon" android:text="Select your app icon" style="@style/ButtonGhost" android:gravity="center"
+                android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <Button android:id="@+id/btnResetIcon" android:text="Use default icon" style="@style/ButtonGhost" android:gravity="center"
+                android:layout_marginTop="6dp" android:layout_width="match_parent" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView android:id="@+id/iconStatus" android:textColor="@color/text_hint" android:textSize="11sp" android:layout_marginTop="4dp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content" />
+
+    <TextView android:text="LIBRARIES" style="@style/SectionLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <CheckBox android:id="@+id/libAppCompat" android:text="AppCompat (androidx.appcompat)" android:textColor="@color/text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <CheckBox android:id="@+id/libMaterial" android:text="Material (com.google.android.material)" android:textColor="@color/text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <TextView android:text="Needs AppCompatActivity and an AppCompat / MaterialComponents theme. The first build downloads the Kotlin / coroutines / arch-core runtime libraries automatically (internet needed once)." android:textColor="@color/text_hint" android:textSize="11sp" android:layout_marginTop="4dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+
+    <TextView android:text="LIBRARY PATHS" style="@style/SectionLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <EditText android:id="@+id/assetsPath" android:hint="Assets Path (optional)" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" />
+    <EditText android:id="@+id/nativeLibsPath" android:hint="Native Libs Path (optional)" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" />
+    <EditText android:id="@+id/localLibsPath" android:hint="Local Libs Path (optional)" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <TextView android:text="Assets and native libs can be left empty." android:textColor="@color/text_hint" android:textSize="11sp" android:layout_marginTop="4dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+
+    <TextView android:text="BUILD" style="@style/SectionLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <EditText android:id="@+id/minSdk" android:hint="Min SDK" android:inputType="number" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:layout_marginEnd="8dp" />
+        <EditText android:id="@+id/maxSdk" android:hint="Max SDK" android:inputType="number" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp">
+        <EditText android:id="@+id/versionName" android:hint="Version Name" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:layout_marginEnd="8dp" />
+        <EditText android:id="@+id/versionCode" android:hint="Version Code" android:inputType="number" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <TextView android:text="JAVA / DEXER" style="@style/SectionLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <TextView android:text="Java 17" android:textColor="@color/text_primary" android:textSize="14sp" android:background="@drawable/bg_input" android:padding="12dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" />
+    <TextView android:text="D8 dexer" android:textColor="@color/text_primary" android:textSize="14sp" android:background="@drawable/bg_input" android:padding="12dp" android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+    <TextView android:text="OPTIMIZATION" style="@style/SectionLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <CheckBox android:id="@+id/stringFog" android:text="String Fog" android:textColor="@color/text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <CheckBox android:id="@+id/r8" android:text="R8 Shrinker" android:textColor="@color/text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <CheckBox android:id="@+id/proguard" android:text="ProGuard" android:textColor="@color/text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+
+    <TextView android:text="SIGNING" style="@style/SectionLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <CheckBox android:id="@+id/customKeystore" android:text="Use custom keystore" android:textColor="@color/text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8dp" />
+    <EditText android:id="@+id/ksPath" android:hint="Keystore path (.jks/.p12)" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" />
+    <EditText android:id="@+id/ksAlias" android:hint="Key alias" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" />
+    <EditText android:id="@+id/ksPass" android:hint="Keystore password" android:inputType="textPassword" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" />
+    <EditText android:id="@+id/keyPass" android:hint="Key password" android:inputType="textPassword" android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+    <Button android:id="@+id/save" android:text="SAVE SETTINGS" style="@style/ButtonPrimary" android:gravity="center"
+        android:layout_marginTop="22dp" android:layout_width="match_parent" android:layout_height="wrap_content" />
+</LinearLayout>
+</ScrollView>
