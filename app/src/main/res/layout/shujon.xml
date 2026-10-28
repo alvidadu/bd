@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_bg_gradient">
+
+    <!-- Center Interactive Visuals -->
+    <RelativeLayout
+        android:id="@+id/icon_wrapper"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:layout_centerInParent="true">
+
+        <!-- Glowing Aura Backdrop -->
+        <View
+            android:id="@+id/ambient_glow"
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/splash_icon_glow" />
+
+        <!-- Outer Radar Pulse Waves -->
+        <View
+            android:id="@+id/pulse_wave_2"
+            android:layout_width="210dp"
+            android:layout_height="210dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/splash_pulse_ring"
+            android:visibility="invisible" />
+
+        <View
+            android:id="@+id/pulse_wave_1"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/splash_pulse_ring"
+            android:visibility="invisible" />
+
+        <!-- 3D Floating App Icon -->
+        <ImageView
+            android:id="@+id/splash_app_icon"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/app_name"
+            android:elevation="12dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/app_icon" />
+    </RelativeLayout>
+
+    <!-- App Title & Tagline -->
+    <LinearLayout
+        android:id="@+id/brand_text_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/icon_wrapper"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_brand_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:letterSpacing="0.08"
+            android:text="APS GATEWAY"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/tv_tagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.04"
+            android:text="AUTOMATED PAYMENT ECOSYSTEM"
+            android:textColor="#38BDF8"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <!-- Bottom Loading & Security Footer -->
+    <LinearLayout
+        android:id="@+id/footer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="36dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="40dp">
+
+        <!-- Modern Neon Progress Bar Container -->
+        <RelativeLayout
+            android:id="@+id/progress_track"
+            android:layout_width="180dp"
+            android:layout_height="4dp"
+            android:background="@drawable/splash_progress_bg">
+
+            <View
+                android:id="@+id/progress_bar_fill"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/splash_progress_fill" />
+        </RelativeLayout>
+
+        <!-- Security Pill Badge -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/splash_chip_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="6dp">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:contentDescription="Security Shield"
+                android:src="@drawable/ic_shield_check" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.02"
+                android:text="Secured Terminal • v2.0"
+                android:textColor="#94A3B8"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- Copyright -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="sans-serif"
+            android:text="© Azebri Payment Systems Ltd."
+            android:textColor="#475569"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+</RelativeLayout>

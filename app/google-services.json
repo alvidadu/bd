@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1035464908835",
+    "firebase_url": "https://payment-getway-d97c4-default-rtdb.firebaseio.com",
+    "project_id": "payment-getway-d97c4",
+    "storage_bucket": "payment-getway-d97c4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1035464908835:android:524a0642c8f0def12b1196",
+        "android_client_info": {
+          "package_name": "com.aps.azebri"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx_1VNe8vitmohVMmbnNaKYsokZJ6ce7U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

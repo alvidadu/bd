@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_rounded_bg"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Dialog Header -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="ম্যানুয়াল ডাটা যুক্ত করুন"
+        android:textColor="#0F172A"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="sans-serif"
+        android:text="টেস্টিং বা মিসিং পেমেন্ট এসএমএস ডাটাবেজ ও ক্লাউডে পুশ করুন"
+        android:textColor="#64748B"
+        android:textSize="12sp" />
+
+    <!-- Sender Channel Selection -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="MFS চ্যানেল / প্রেরক (From)"
+        android:textColor="#334155"
+        android:textSize="13sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/filter_chip_unselected"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="12dp">
+
+        <Spinner
+            android:id="@+id/sp_sender_channel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown" />
+    </LinearLayout>
+
+    <!-- SMS Message Content Input -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="এসএমএস টেক্সট (Message Body)"
+        android:textColor="#334155"
+        android:textSize="13sp" />
+
+    <EditText
+        android:id="@+id/et_manual_body"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/filter_chip_unselected"
+        android:gravity="top|start"
+        android:hint="You have received Tk 1,500.00 from 017XXXXXXXX. TrxID 9H7G6D5S4A"
+        android:inputType="textMultiLine"
+        android:padding="12dp"
+        android:textColor="#0F172A"
+        android:textColorHint="#94A3B8"
+        android:textSize="13sp" />
+
+    <!-- Sync with Server Checkbox -->
+    <CheckBox
+        android:id="@+id/cb_sync_server"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:checked="true"
+        android:fontFamily="sans-serif-medium"
+        android:text="ক্লাউড সার্ভারে তাৎক্ষণিক সিঙ্ক করুন (api/add-data)"
+        android:textColor="#0B63E5"
+        android:textSize="12sp" />
+
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_cancel_add"
+            style="?attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="বাতিল"
+            android:textColor="#64748B" />
+
+        <Button
+            android:id="@+id/btn_confirm_add"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="#0B63E5"
+            android:fontFamily="sans-serif-black"
+            android:text="সংরক্ষণ ও সিঙ্ক"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+</LinearLayout>

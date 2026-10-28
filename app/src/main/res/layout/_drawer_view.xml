@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="#FFFFFF"
+	android:orientation="vertical">
+
+	<!-- প্রফেশনাল হেডার ডিজাইন (থিম কালার ম্যাচিং) -->
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="210dp"
+		android:background="#FF4B2B"
+		android:gravity="center_vertical"
+		android:orientation="vertical"
+		android:padding="25dp">
+
+		<!-- লোগোর জন্য সাদা বর্ডার বা ব্যাকগ্রাউন্ড ফিল -->
+		<LinearLayout
+			android:layout_width="80dp"
+			android:layout_height="80dp"
+			android:background="#FFFFFF"
+			android:padding="10dp"
+			android:gravity="center">
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:src="@drawable/app_icon" />
+		</LinearLayout>
+
+		<TextView
+			android:id="@+id/user_email_display"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="15dp"
+			android:text="Loading account..."
+			android:textColor="#FFFFFF"
+			android:textSize="17sp"
+			android:textStyle="bold" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="APS-PaymentSystem"
+			android:textColor="#E0E0E0"
+			android:textSize="12sp" />
+	</LinearLayout>
+
+	<!-- মেনু আইটেম সেকশন -->
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:paddingTop="10dp">
+
+			<!-- Home Item -->
+			<LinearLayout
+				android:id="@+id/btn_home"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:clickable="true"
+				android:focusable="true"
+				android:foreground="?attr/selectableItemBackground"
+				android:gravity="center_vertical"
+				android:padding="16dp">
+				<ImageView
+					android:layout_width="24dp"
+					android:layout_height="24dp"
+					android:src="@android:drawable/ic_menu_today"
+					android:tint="#FF4B2B" />
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="20dp"
+					android:text="Home / Refresh"
+					android:textColor="#333333"
+					android:textSize="15sp"
+					android:textStyle="bold" />
+			</LinearLayout>
+
+			<!-- WhatsApp Contact Item -->
+			<LinearLayout
+				android:id="@+id/btn_contact"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:clickable="true"
+				android:focusable="true"
+				android:foreground="?attr/selectableItemBackground"
+				android:gravity="center_vertical"
+				android:padding="16dp">
+				<ImageView
+					android:layout_width="24dp"
+					android:layout_height="24dp"
+					android:src="@android:drawable/stat_notify_chat"
+					android:tint="#FF4B2B" />
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="20dp"
+					android:text="Contact Us (WhatsApp)"
+					android:textColor="#333333"
+					android:textSize="15sp"
+					android:textStyle="bold" />
+			</LinearLayout>
+
+			<!-- Privacy Policy Item -->
+			<LinearLayout
+				android:id="@+id/btn_privacy"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:clickable="true"
+				android:focusable="true"
+				android:foreground="?attr/selectableItemBackground"
+				android:gravity="center_vertical"
+				android:padding="16dp">
+				<ImageView
+					android:layout_width="24dp"
+					android:layout_height="24dp"
+					android:src="@android:drawable/ic_menu_info_details"
+					android:tint="#FF4B2B" />
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="20dp"
+					android:text="Privacy Policy"
+					android:textColor="#333333"
+					android:textSize="15sp"
+					android:textStyle="bold" />
+			</LinearLayout>
+
+			<!-- Clear History Item -->
+			<LinearLayout
+				android:id="@+id/btn_clear"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:clickable="true"
+				android:focusable="true"
+				android:foreground="?attr/selectableItemBackground"
+				android:gravity="center_vertical"
+				android:padding="16dp">
+				<ImageView
+					android:layout_width="24dp"
+					android:layout_height="24dp"
+					android:src="@android:drawable/ic_menu_delete"
+					android:tint="#FF4B2B" />
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="20dp"
+					android:text="Clear History"
+					android:textColor="#333333"
+					android:textSize="15sp"
+					android:textStyle="bold" />
+			</LinearLayout>
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:layout_marginHorizontal="16dp"
+				android:layout_marginVertical="8dp"
+				android:background="#EEEEEE" />
+
+			<!-- Logout Item (লাল রঙ দিয়ে হাইলাইট করা) -->
+			<LinearLayout
+				android:id="@+id/btn_logout"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:clickable="true"
+				android:focusable="true"
+				android:foreground="?attr/selectableItemBackground"
+				android:gravity="center_vertical"
+				android:padding="16dp">
+				<ImageView
+					android:layout_width="24dp"
+					android:layout_height="24dp"
+					android:src="@android:drawable/ic_lock_power_off"
+					android:tint="#FF0000" />
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="20dp"
+					android:text="Logout Account"
+					android:textColor="#FF0000"
+					android:textSize="15sp"
+					android:textStyle="bold" />
+			</LinearLayout>
+
+		</LinearLayout>
+	</ScrollView>
+
+	<!-- Footer / Version Info -->
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:padding="15dp"
+		android:text="App Version 1.0.0 | Powered by AZEBRI"
+		android:textColor="#BDBDBD"
+		android:textSize="11sp" />
+
+</LinearLayout>
